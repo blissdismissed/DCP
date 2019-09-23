@@ -7,23 +7,34 @@
 import sys
 import math
 
-
 def sumCheck(lst, num):
-    lst = [10,15,3,7]
-    num = 17
+    #copy_lst = lst
     for i in lst:
         #print(i)
         for j in lst:
             #print(j)
-            if i+j == num:
+            #print("i: ",lst[int(i)])
+            #print("j: ",lst[int(j)])
+            #sum = int(i)+int(j)
+            #print("Sum: ",sum)
+            if int(i)+int(j) == int(num):
                 return True
+    
     return False
 
 
 if __name__ == "__main__":
 
-    lst = sys.argv[1]
+    if len(sys.argv) < 3:
+        print("You failed to enter enough arguments... Exiting.")
+        sys.exit()
+
+    lst = sys.argv[1].split(",")
     num = sys.argv[2]
 
     print("Problem 1: ")
+    print("num: ", num)
+    print("list: ", lst)
     print(sumCheck(lst,num))
+
+    # What if either arg is missing? what if list is empty?
