@@ -4,9 +4,26 @@
 #
 # Bonus: Can you do this in one pass?
 
+import sys
 import math
 
-lst = []
+
+def sumCheck(lst, num):
+    lst = [10,15,3,7]
+    num = 17
+    for i in lst:
+        #print(i)
+        for j in lst:
+            #print(j)
+            if i+j == num:
+                return True
+    return False
+
 
 if __name__ == "__main__":
-    print("Testing")
+
+    lst = sys.argv[1]
+    num = sys.argv[2]
+
+    print("Problem 1: ")
+    print(sumCheck(lst,num))
