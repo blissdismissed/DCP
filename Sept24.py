@@ -12,25 +12,41 @@
 
 import math
 import sys
+import numpy
 
-def totalProductMethod():
-    print("Method1: ")
+def totalProductMethod(lst):
+    #print("Method1: ")
+    #print(lst)
+    product = 1
+    output = []
 
-def stepThroughArray():
-    print("Method2: ")
+    if len(lst) < 2: return output
+    for i in lst:
+        product = i * product
+    print("Product = ",product)
+    print("Numpy product = ",numpy.product(lst))
+    for i in lst:
+        output.append(int(product / i))
+    return output
 
+
+
+def stepThroughArray(list):
+    #print("Method2: ")
+    pass
 
 if __name__ == "__main__":
-    if len(sys.argv) < 3:
-        print("You failed to enter enough arguments... Exiting.")
+    if len(sys.argv) < 2:
+        print("You failed to enter a list... Exiting.")
         sys.exit()
 
     lst = sys.argv[1].split(",")
-    num = sys.argv[2]
+    lst = list(map(int, lst))
 
     print("Problem 2: ")
-    totalProductMethod()
-    stepThroughArray()
-    #print("num: ", num)
+    method1Ans = totalProductMethod(lst)
+    method2Ans = stepThroughArray(lst)
+
+    print("Method1: ", method1Ans)
     #print("list: ", lst)
     #print(sumCheck(lst,num))
