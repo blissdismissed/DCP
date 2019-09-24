@@ -9,6 +9,7 @@ import math
 
 def sumCheck(lst, num):
     #copy_lst = lst
+    iter = 0
     for i in lst:
         #print(i)
         for j in lst:
@@ -17,7 +18,9 @@ def sumCheck(lst, num):
             #print("j: ",lst[int(j)])
             #sum = int(i)+int(j)
             #print("Sum: ",sum)
+            iter += 1
             if int(i)+int(j) == int(num):
+                print("Iterations: ", iter)
                 return True
     
     return False
