@@ -13,6 +13,7 @@
 import math
 import sys
 import numpy
+import timeit
 
 def totalProductMethod(lst):
     #print("Method1: ")
@@ -23,17 +24,27 @@ def totalProductMethod(lst):
     if len(lst) < 2: return output
     for i in lst:
         product = i * product
-    print("Product = ",product)
-    print("Numpy product = ",numpy.product(lst))
+    #print("Product = ",product)
+    #print("Numpy product = ",numpy.product(lst))
     for i in lst:
         output.append(int(product / i))
     return output
 
 
 
-def stepThroughArray(list):
+def stepThroughArray(lst):
     #print("Method2: ")
-    pass
+    # initialize an array of same length as lst of all 1's
+    outputLst = numpy.ones(len(lst), dtype = int)
+    #print("Lst: ", lst)
+    for i in range(len(lst)):
+        #print("In lst: ", i, lst[i])
+        for j in range(len(outputLst)):
+            #print("In outputLst: ", j, outputLst[j])
+            if i != j:
+                outputLst[j] = outputLst[j] * lst[i]
+    return outputLst
+
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
@@ -43,10 +54,8 @@ if __name__ == "__main__":
     lst = sys.argv[1].split(",")
     lst = list(map(int, lst))
 
-    print("Problem 2: ")
     method1Ans = totalProductMethod(lst)
     method2Ans = stepThroughArray(lst)
 
     print("Method1: ", method1Ans)
-    #print("list: ", lst)
-    #print(sumCheck(lst,num))
+    print("Method2: ", method2Ans)
