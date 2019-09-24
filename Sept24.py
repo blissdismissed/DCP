@@ -13,7 +13,7 @@
 import math
 import sys
 import numpy
-import timeit
+import time
 
 def totalProductMethod(lst):
     #print("Method1: ")
@@ -54,8 +54,16 @@ if __name__ == "__main__":
     lst = sys.argv[1].split(",")
     lst = list(map(int, lst))
 
+    start1 = time.time()
     method1Ans = totalProductMethod(lst)
+    end1 = time.time()
+
+    start2 = time.time()
     method2Ans = stepThroughArray(lst)
+    end2 = time.time()
+
+    print("Method 1 took: ",end1-start1)
+    print("Method 2 took: ",end2-start2)
 
     print("Method1: ", method1Ans)
     print("Method2: ", method2Ans)
