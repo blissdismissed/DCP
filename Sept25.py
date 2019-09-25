@@ -7,4 +7,10 @@ class Node:
         self.right = right
 
 if __name__ == "__main__":
-    print("Boom")
+
+    node = Node('root')
+    print(node)
+
+
+    #node = Node('root', Node('left', Node('left.left')), Node('right'))
+    #assert deserialize(serialize(node)).left.left.val == 'left.left'    
