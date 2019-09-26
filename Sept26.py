@@ -10,5 +10,22 @@
 import math
 import sys
 
+def findInt(inputs):
+    i = 1
+    while i <= len(inputs):
+        #print("where am i?")
+        #print(i)
+        if i in inputs:
+            #print("here")
+            i += 1
+        else: return i
+
+
 if __name__ == '__main__':
     print("Boom")
+    input1 = [3,4,-1,1] # => 2
+    input2 = [1,2,0] # => 3
+    print(findInt(input1))
+    #assert input2[0] == 1
+    #print(len(input2))
+
